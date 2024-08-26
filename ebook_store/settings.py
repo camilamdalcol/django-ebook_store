@@ -80,22 +80,14 @@ WSGI_APPLICATION = "ebook_store.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-import dj_database_url
-import os
 
 DATABASES = {
-    "default": dj_database_url.parse("postgresql://newdb_lisn_user:rswZblIXK4qiHWSlnm4La0v067diuQM6@dpg-cr6alutumphs73biog5g-a.oregon-postgres.render.com/newdb_lisn")
-}
-
-# Se DATABASE_URL não estiver definido, use as configurações locais
-if not DATABASES['default']:
-    DATABASES = {
         "default": {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'newdb',
+            'NAME': 'newdb_ygi5',
             'USER': 'camdc',
-            'PASSWORD': 'Hello123456',
-            'HOST': 'localhost',
+            'PASSWORD': '6ux4sgSj28LunmeFC51YdQWMEpfBqpEF',
+            'HOST': 'dpg-cr6br1lumphs73bjb6ag-a.oregon-postgres.render.com',
             'PORT': '5432',
         }
     }
