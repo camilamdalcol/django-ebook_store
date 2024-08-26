@@ -10,7 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -82,15 +85,10 @@ WSGI_APPLICATION = "ebook_store.wsgi.application"
 
 
 DATABASES = {
-        "default": {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'newdb_ygi5',
-            'USER': 'camdc',
-            'PASSWORD': '6ux4sgSj28LunmeFC51YdQWMEpfBqpEF',
-            'HOST': 'dpg-cr6br1lumphs73bjb6ag-a.oregon-postgres.render.com',
-            'PORT': '5432',
-        }
-    }
+    "default": dj_database_url.parse(os.environ.get("DATABASE_URL", ""))
+}
+
+
 
 
 
