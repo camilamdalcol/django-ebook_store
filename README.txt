@@ -45,3 +45,6 @@
 
 Your Django project should now be up and running at http://127.0.0.1:8000/.
 
+
+Render url: https://django-ebook-store.onrender.com
+
