@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "database": "newdb",
+            "username": "postgres",
+            "password": "Hello123456",
+            "name": "django.db.backends.postgresql"
+        }
+    ]
+}

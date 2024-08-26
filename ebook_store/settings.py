@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-8^gx8v50m#k9ym!19tob=@2-8&uj%1(7xf-o&9^t!mhwj8qr5#"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '0.0.0.0']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -80,16 +80,26 @@ WSGI_APPLICATION = "ebook_store.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+import dj_database_url
+import os
+
 DATABASES = {
-    "default": {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'newdb',
-        'USER': 'camdc',
-        'PASSWORD': 'Hello123456',
-        'HOST': 'localhost',  # Or the IP address of your database server
-        'PORT': '5432',  # Default port for PostgreSQL
-    }
+    "default": dj_database_url.parse("postgresql://newdb_lisn_user:rswZblIXK4qiHWSlnm4La0v067diuQM6@dpg-cr6alutumphs73biog5g-a.oregon-postgres.render.com/newdb_lisn")
 }
+
+# Se DATABASE_URL não estiver definido, use as configurações locais
+if not DATABASES['default']:
+    DATABASES = {
+        "default": {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'newdb',
+            'USER': 'camdc',
+            'PASSWORD': 'Hello123456',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
+
 
 
 # Password validation
